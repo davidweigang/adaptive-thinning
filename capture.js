@@ -28,7 +28,7 @@
     navigator.mediaDevices.getUserMedia({video: true, audio: false})
     .then(function(stream) {
       video.srcObject = stream;
-//      video.setAttribute("playsinline", true);
+      video.setAttribute("playsinline", true);
 //      video.setAttribute("controls", true);
 //	    setTimeout(() => {
 //    video.removeAttribute("controls");
