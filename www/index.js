@@ -1,19 +1,18 @@
-import { memory } from "wasm-game-of-life/wasm_game_of_life_bg";
-import {WasmImage} from "wasm-game-of-life";
-WebAssembly.compileStreaming(fetch('../pkg/wasm_game_of_life_bg.wasm'))
-.then(function(mod) {
-  var imports = WebAssembly.Module.imports(mod);
-  console.log(imports[0]);
-});
-
+//import { memory } from "../pkg/wasm_game_of_life/wasm_game_of_life_bg";
+//import {WasmImage} from "../pkg/wasm_game_of_life";
+//WebAssembly.compileStreaming(fetch('../pkg/wasm_game_of_life_bg.wasm'))
+//      .then(function(mod) {
+//	              var imports = WebAssembly.Module.imports(mod);
+//	              console.log(imports[0]);
+//	            });
 //
-//
-//// Construct the image, and get its width and height.
-//const width = image.width();
-//const height = image.height();
+import init, { WasmImage } from '../pkg/wasm_game_of_life.js';
 
-// Give the canvas room for all of our cells and a 1px border
-// around each of them.
+
+var memory;
+async function run() {
+	var bla = await init();
+	memory = bla.memory;
 var c = document.getElementById("game-of-life-canvas");
 var ctx = c.getContext("2d");
 var img = document.getElementById("fruits");
@@ -49,7 +48,7 @@ function thinning() {
   at_image.thinning();
   end();
 	console.log("PSNR: " + at_image.psnr());
-	console.log(at_image.n_remaining() + " vertices out of" + c.width*c.height + "remaining.");
+	console.log(at_image.n_remaining() + " vertices out of " + c.width*c.height + " remaining.");
 
 
   var pixelPtr = at_image.image_pixels();
@@ -72,3 +71,7 @@ function thinning() {
   document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
 }
 document.getElementById("btn").addEventListener("click", thinning);
+}
+
+run();	
+
