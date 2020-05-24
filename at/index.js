@@ -31,7 +31,7 @@ function end() {
 }
 
 function thinning() {
-var c = document.getElementById("game-of-life-canvas");
+var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
 var img = document.getElementById("photo");
 c.width = img.width;
@@ -40,7 +40,7 @@ ctx.drawImage(img, 0, 0);
 let img0_url = c.toDataURL("image/png");
 let imgData = ctx.getImageData(0,0,c.width, c.height);
 
-let at_image = WasmImage.new(0, c.width, c.height, 33, imgData.data);
+let at_image = WasmImage.new(0, c.width, c.height, 33., imgData.data);
 console.log(at_image.width());
 console.log(at_image.height());
 
