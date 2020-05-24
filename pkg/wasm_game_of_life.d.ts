@@ -8,10 +8,11 @@ export class WasmImage {
 * @param {number} n 
 * @param {number} width 
 * @param {number} height 
+* @param {number} psnr_threshhold 
 * @param {Uint8ClampedArray} pixels 
 * @returns {WasmImage} 
 */
-  static new(n: number, width: number, height: number, pixels: Uint8ClampedArray): WasmImage;
+  static new(n: number, width: number, height: number, psnr_threshhold: number, pixels: Uint8ClampedArray): WasmImage;
 /**
 * @returns {number} 
 */
@@ -50,7 +51,7 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly __wbg_wasmimage_free: (a: number) => void;
-  readonly wasmimage_new: (a: number, b: number, c: number, d: number, e: number) => number;
+  readonly wasmimage_new: (a: number, b: number, c: number, d: number, e: number, f: number) => number;
   readonly wasmimage_width: (a: number) => number;
   readonly wasmimage_height: (a: number) => number;
   readonly wasmimage_psnr: (a: number) => number;
