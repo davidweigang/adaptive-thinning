@@ -26,8 +26,8 @@
     startbutton = document.getElementById('startbutton');
 
     navigator.mediaDevices.getUserMedia({video: {
-	width: {exact: 320},
-        height: {exact: 240},
+	width: 320,
+        height: 240,
 	resizeMode: "crop-and-scale"
     }, audio: false})
     .then(function(stream) {
