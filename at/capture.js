@@ -25,7 +25,10 @@
     photo = document.getElementById('photo');
     startbutton = document.getElementById('startbutton');
 
-    navigator.mediaDevices.getUserMedia({video: true, audio: false})
+    navigator.mediaDevices.getUserMedia({video: {
+        width: 320,
+        height: 240
+    }, audio: false})
     .then(function(stream) {
       video.srcObject = stream;
       video.setAttribute("playsinline", true);
