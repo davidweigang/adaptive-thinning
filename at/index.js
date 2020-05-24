@@ -13,19 +13,6 @@ var memory;
 async function run() {
 	var bla = await init();
 	memory = bla.memory;
-var c = document.getElementById("game-of-life-canvas");
-var ctx = c.getContext("2d");
-var img = document.getElementById("fruits");
-c.width = img.width;
-c.height = img.height;
-ctx.drawImage(img, 0, 0);
-let img0_url = c.toDataURL("image/png");
-let imgData = ctx.getImageData(0,0,c.width, c.height);
-
-let at_image = WasmImage.new(0, c.width, c.height, imgData.data);
-console.log(at_image.width());
-console.log(at_image.height());
-
 var startTime, endTime;
 
 function start() {
@@ -44,6 +31,19 @@ function end() {
 }
 
 function thinning() {
+var c = document.getElementById("game-of-life-canvas");
+var ctx = c.getContext("2d");
+var img = document.getElementById("photo");
+c.width = img.width;
+c.height = img.height;
+ctx.drawImage(img, 0, 0);
+let img0_url = c.toDataURL("image/png");
+let imgData = ctx.getImageData(0,0,c.width, c.height);
+
+let at_image = WasmImage.new(0, c.width, c.height, imgData.data);
+console.log(at_image.width());
+console.log(at_image.height());
+
   start();
   at_image.thinning();
   end();

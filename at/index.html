@@ -1,27 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello wasm-pack!</title>
-    <style>
-  body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
-  </head>
-  <body>
+<head>
+	<title>Adaptive Thinning</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="main.css" type="text/css" media="all">
+	<script src="capture.js">
+	</script>
+</head>
+<body>
+<div class="contentarea">
+	<h1>
+		Adaptive Thinning: Proof of concept
+	</h1>
+	<p>
+		Test AT in Browser
+	</p>
+  <div class="camera">
+    <video id="video" class="grayscale" >Video stream not available.</video>
+    <button id="startbutton">Take photo</button> 
+  </div>
+  <canvas id="canvas">
+  </canvas>
+  <div class="output">
+    <img id="photo" alt="The screen capture will appear in this box."> 
+  </div>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <img id="fruits" src="fruits256.png"></img>
     <canvas id="game-of-life-canvas" style="display:none"></canvas>
     <button id="btn">Click Me!</button>
     <script src="./bootstrap.js"></script>
-  </body>
+</div>
+</body>
 </html>
+
