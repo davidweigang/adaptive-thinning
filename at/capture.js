@@ -27,7 +27,10 @@
 
     navigator.mediaDevices.getUserMedia({video: {
         width: 320,
-        height: 240
+        height: 240,
+	resizeMode: "crop-and-scale",
+	facingMode: "environment"
+
     }, audio: false})
     .then(function(stream) {
       video.srcObject = stream;
