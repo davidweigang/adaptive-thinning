@@ -27,6 +27,55 @@ function passArray8ToWasm0(arg, malloc) {
 }
 /**
 */
+export class AtDecoder {
+
+    static __wrap(ptr) {
+        const obj = Object.create(AtDecoder.prototype);
+        obj.ptr = ptr;
+
+        return obj;
+    }
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+
+        wasm.__wbg_atdecoder_free(ptr);
+    }
+    /**
+    * @param {Uint8ClampedArray} bytes
+    * @returns {AtDecoder}
+    */
+    static decode(bytes) {
+        var ptr0 = passArray8ToWasm0(bytes, wasm.__wbindgen_malloc);
+        var len0 = WASM_VECTOR_LEN;
+        var ret = wasm.atdecoder_decode(ptr0, len0);
+        return AtDecoder.__wrap(ret);
+    }
+    /**
+    * @returns {number}
+    */
+    image_pixels() {
+        var ret = wasm.atdecoder_image_pixels(this.ptr);
+        return ret;
+    }
+    /**
+    * @returns {number}
+    */
+    point_image_pixels() {
+        var ret = wasm.atdecoder_point_image_pixels(this.ptr);
+        return ret;
+    }
+    /**
+    * @returns {number}
+    */
+    triangulation_image_pixels() {
+        var ret = wasm.atdecoder_triangulation_image_pixels(this.ptr);
+        return ret;
+    }
+}
+/**
+*/
 export class WasmImage {
 
     static __wrap(ptr) {

@@ -2,6 +2,28 @@
 /* eslint-disable */
 /**
 */
+export class AtDecoder {
+  free(): void;
+/**
+* @param {Uint8ClampedArray} bytes 
+* @returns {AtDecoder} 
+*/
+  static decode(bytes: Uint8ClampedArray): AtDecoder;
+/**
+* @returns {number} 
+*/
+  image_pixels(): number;
+/**
+* @returns {number} 
+*/
+  point_image_pixels(): number;
+/**
+* @returns {number} 
+*/
+  triangulation_image_pixels(): number;
+}
+/**
+*/
 export class WasmImage {
   free(): void;
 /**
@@ -58,6 +80,11 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly __wbg_atdecoder_free: (a: number) => void;
+  readonly atdecoder_decode: (a: number, b: number) => number;
+  readonly atdecoder_image_pixels: (a: number) => number;
+  readonly atdecoder_point_image_pixels: (a: number) => number;
+  readonly atdecoder_triangulation_image_pixels: (a: number) => number;
   readonly __wbg_wasmimage_free: (a: number) => void;
   readonly wasmimage_new: (a: number, b: number, c: number, d: number, e: number, f: number) => number;
   readonly wasmimage_width: (a: number) => number;
