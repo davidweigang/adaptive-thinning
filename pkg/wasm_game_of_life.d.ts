@@ -12,6 +12,18 @@ export class AtDecoder {
 /**
 * @returns {number} 
 */
+  width(): number;
+/**
+* @returns {number} 
+*/
+  height(): number;
+/**
+* @returns {number} 
+*/
+  dimension(): number;
+/**
+* @returns {number} 
+*/
   image_pixels(): number;
 /**
 * @returns {number} 
@@ -82,6 +94,9 @@ export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly __wbg_atdecoder_free: (a: number) => void;
   readonly atdecoder_decode: (a: number, b: number) => number;
+  readonly atdecoder_width: (a: number) => number;
+  readonly atdecoder_height: (a: number) => number;
+  readonly atdecoder_dimension: (a: number) => number;
   readonly atdecoder_image_pixels: (a: number) => number;
   readonly atdecoder_point_image_pixels: (a: number) => number;
   readonly atdecoder_triangulation_image_pixels: (a: number) => number;

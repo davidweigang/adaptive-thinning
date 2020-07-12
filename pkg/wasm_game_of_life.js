@@ -55,6 +55,27 @@ export class AtDecoder {
     /**
     * @returns {number}
     */
+    width() {
+        var ret = wasm.atdecoder_width(this.ptr);
+        return ret >>> 0;
+    }
+    /**
+    * @returns {number}
+    */
+    height() {
+        var ret = wasm.atdecoder_height(this.ptr);
+        return ret >>> 0;
+    }
+    /**
+    * @returns {number}
+    */
+    dimension() {
+        var ret = wasm.atdecoder_dimension(this.ptr);
+        return ret >>> 0;
+    }
+    /**
+    * @returns {number}
+    */
     image_pixels() {
         var ret = wasm.atdecoder_image_pixels(this.ptr);
         return ret;

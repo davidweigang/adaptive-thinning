@@ -3,6 +3,9 @@
 export const memory: WebAssembly.Memory;
 export function __wbg_atdecoder_free(a: number): void;
 export function atdecoder_decode(a: number, b: number): number;
+export function atdecoder_width(a: number): number;
+export function atdecoder_height(a: number): number;
+export function atdecoder_dimension(a: number): number;
 export function atdecoder_image_pixels(a: number): number;
 export function atdecoder_point_image_pixels(a: number): number;
 export function atdecoder_triangulation_image_pixels(a: number): number;
