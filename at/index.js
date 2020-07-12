@@ -69,7 +69,7 @@ console.log(at_image.height());
   ima = new ImageData(pixels, c.width, c.height);
   ctx.putImageData(ima, 0, 0);
   let img3_url = c.toDataURL("image/png");
-  let bytePtr = at_image.bytes();
+  let bytePtr = at_image.encoded_bytes();
   document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
   var bytes = new Uint8Array(bytePtr); // pass your byte response to this constructor
   var blob=new Blob([bytes], {type: "application/at"});// change resultByte to bytes
