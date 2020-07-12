@@ -33,15 +33,10 @@ async function run() {
 	function decode(event) {
 		var input = event.target;
 		var reader = new FileReader();
-    		var byteArrayBuffer;
-                var bytes;
     		reader.onload = function(){
-    		  byteArrayBuffer = reader.result;
-                  bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
-    		};
-    		reader.readAsArrayBuffer(input.files[0]);
+    		  var byteArrayBuffer = reader.result;
+                  var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
 		console.log("DECODE");
-
 		let at_decoder = AtDecoder.decode(bytes);
 	
 		var pixelPtr = at_decoder.image_pixels();
@@ -62,6 +57,8 @@ async function run() {
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
 	  	document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
+    		};
+    		reader.readAsArrayBuffer(input.files[0]);
 	}
 
 	
