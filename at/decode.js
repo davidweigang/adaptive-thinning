@@ -31,6 +31,8 @@ async function run() {
 	}
 	
 	function decode(event) {
+		var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
 		var input = event.target;
 		var reader = new FileReader();
     		reader.onload = function(){
