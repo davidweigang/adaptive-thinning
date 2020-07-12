@@ -40,7 +40,7 @@ async function run() {
     		reader.readAsArrayBuffer(input.files[0]);
 		console.log("DECODE");
 
-		let at_decoder = Decoder.decode(bytes);
+		let at_decoder = AtDecoder.decode(bytes);
 	
 		var pixelPtr = at_decoder.image_pixels();
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, c.width * c.height * 4);
