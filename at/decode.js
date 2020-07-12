@@ -31,6 +31,17 @@ async function run() {
 	}
 	
 	function decode(event) {
+		var count = 0;
+		let reducer = (acc, value) => {
+			if (count === 3) {
+				acc.push(255);
+				count = 0;
+			}
+			acc.push(value);
+			count++;
+			return acc;
+
+		}
 		var c = document.getElementById("canvas");
 		var ctx = c.getContext("2d");
 		var input = event.target;
@@ -46,18 +57,21 @@ async function run() {
 		var height = at_decoder.height();
 		var dimension = at_decoder.dimension();
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
+		pixels = pixels.reduce(reducer, {});
 	  	var ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img1_url = c.toDataURL("image/png");
 	  	
 	  	pixelPtr = at_decoder.point_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
+		pixels = pixels.reduce(reducer, {});
 	  	ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img2_url = c.toDataURL("image/png");
 	  	
 	  	pixelPtr = at_decoder.triangulation_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
+		pixels = pixels.reduce(reducer, {});
 	  	ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
