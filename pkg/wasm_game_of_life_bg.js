@@ -47,13 +47,14 @@ export class WasmImage {
     * @param {number} n
     * @param {number} width
     * @param {number} height
+    * @param {number} psnr_threshhold
     * @param {Uint8ClampedArray} pixels
     * @returns {WasmImage}
     */
-    static new(n, width, height, pixels) {
+    static new(n, width, height, psnr_threshhold, pixels) {
         var ptr0 = passArray8ToWasm0(pixels, wasm.__wbindgen_malloc);
         var len0 = WASM_VECTOR_LEN;
-        var ret = wasm.wasmimage_new(n, width, height, ptr0, len0);
+        var ret = wasm.wasmimage_new(n, width, height, psnr_threshhold, ptr0, len0);
         return WasmImage.__wrap(ret);
     }
     /**
@@ -89,6 +90,13 @@ export class WasmImage {
     */
     image_pixels() {
         var ret = wasm.wasmimage_image_pixels(this.ptr);
+        return ret;
+    }
+    /**
+    * @returns {number}
+    */
+    encoded_bytes() {
+        var ret = wasm.wasmimage_encoded_bytes(this.ptr);
         return ret;
     }
     /**

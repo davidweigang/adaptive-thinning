@@ -8,6 +8,7 @@ export function wasmimage_height(a: number): number;
 export function wasmimage_psnr(a: number): number;
 export function wasmimage_n_remaining(a: number): number;
 export function wasmimage_image_pixels(a: number): number;
+export function wasmimage_encoded_bytes(a: number): number;
 export function wasmimage_point_image_pixels(a: number): number;
 export function wasmimage_triangulation_image_pixels(a: number): number;
 export function wasmimage_thinning(a: number): void;
