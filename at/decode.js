@@ -33,9 +33,11 @@ async function run() {
 	function decode(event) {
 		var input = event.target;
 		var reader = new FileReader();
+    		var byteArrayBuffer;
+                var bytes;
     		reader.onload = function(){
-    		  var byteArrayBuffer = reader.result;
-                  var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
+    		  byteArrayBuffer = reader.result;
+                  bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
     		};
     		reader.readAsArrayBuffer(input.files[0]);
 		console.log("DECODE");
