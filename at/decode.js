@@ -58,6 +58,7 @@ async function run() {
 		var dimension = at_decoder.dimension();
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		pixels = pixels.reduce(reducer, []);
+		pixels = Uint8ClampedArray.from(pixels);
 	  	var ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img1_url = c.toDataURL("image/png");
@@ -65,6 +66,7 @@ async function run() {
 	  	pixelPtr = at_decoder.point_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		pixels = pixels.reduce(reducer, []);
+		pixels = Uint8ClampedArray.from(pixels);
 	  	ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img2_url = c.toDataURL("image/png");
@@ -72,6 +74,7 @@ async function run() {
 	  	pixelPtr = at_decoder.triangulation_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		pixels = pixels.reduce(reducer, []);
+		pixels = Uint8ClampedArray.from(pixels);
 	  	ima = new ImageData(pixels, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
