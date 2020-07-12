@@ -94,6 +94,13 @@ export class WasmImage {
     /**
     * @returns {number}
     */
+    bytes_len() {
+        var ret = wasm.wasmimage_bytes_len(this.ptr);
+        return ret >>> 0;
+    }
+    /**
+    * @returns {number}
+    */
     encoded_bytes() {
         var ret = wasm.wasmimage_encoded_bytes(this.ptr);
         return ret;

@@ -36,6 +36,10 @@ export class WasmImage {
 /**
 * @returns {number} 
 */
+  bytes_len(): number;
+/**
+* @returns {number} 
+*/
   encoded_bytes(): number;
 /**
 * @returns {number} 
@@ -61,6 +65,7 @@ export interface InitOutput {
   readonly wasmimage_psnr: (a: number) => number;
   readonly wasmimage_n_remaining: (a: number) => number;
   readonly wasmimage_image_pixels: (a: number) => number;
+  readonly wasmimage_bytes_len: (a: number) => number;
   readonly wasmimage_encoded_bytes: (a: number) => number;
   readonly wasmimage_point_image_pixels: (a: number) => number;
   readonly wasmimage_triangulation_image_pixels: (a: number) => number;
