@@ -58,24 +58,24 @@ async function run() {
 		var dimension = at_decoder.dimension();
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		var pixels2 = pixels.reduce(reducer, []);
-		pixels = Uint8ClampedArray.from(pixels2);
-	  	var ima = new ImageData(pixels, width, height);
+		var pixels3 = Uint8ClampedArray.from(pixels2);
+	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img1_url = c.toDataURL("image/png");
 	  	
 	  	pixelPtr = at_decoder.point_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		var pixels2 = pixels.reduce(reducer, []);
-		pixels = Uint8ClampedArray.from(pixels2);
-	  	ima = new ImageData(pixels, width, height);
+		var pixels3 = Uint8ClampedArray.from(pixels2);
+	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img2_url = c.toDataURL("image/png");
 	  	
 	  	pixelPtr = at_decoder.triangulation_image_pixels();
 	  	pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		var pixels2 = pixels.reduce(reducer, []);
-		pixels = Uint8ClampedArray.from(pixels2);
-	  	ima = new ImageData(pixels, width, height);
+		var pixels3 = Uint8ClampedArray.from(pixels2);
+	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
 	  	document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
