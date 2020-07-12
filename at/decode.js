@@ -33,12 +33,12 @@ async function run() {
 	function decode(event) {
 		var count = 0;
 		let reducer = (acc, value) => {
+			acc.push(value);
+			count++;
 			if (count === 3) {
 				acc.push(255);
 				count = 0;
 			}
-			acc.push(value);
-			count++;
 			return acc;
 
 		}
