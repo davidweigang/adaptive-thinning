@@ -40,7 +40,8 @@ ctx.drawImage(img, 0, 0);
 let img0_url = c.toDataURL("image/png");
 let imgData = ctx.getImageData(0,0,c.width, c.height);
 
-let at_image = WasmImage.new(74000, c.width, c.height, 33, imgData.data);
+let at_image = WasmImage.new(0, c.width, c.height, 33, imgData.data);
+//let at_image = WasmImage.new(74000, c.width, c.height, 33, imgData.data);
 console.log(at_image.width());
 console.log(at_image.height());
 
@@ -68,7 +69,14 @@ console.log(at_image.height());
   ima = new ImageData(pixels, c.width, c.height);
   ctx.putImageData(ima, 0, 0);
   let img3_url = c.toDataURL("image/png");
+  let bytePtr = at_image.bytes();
   document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
+  var bytes = new Uint8Array(bytePtr); // pass your byte response to this constructor
+  var blob=new Blob([bytes], {type: "application/at"});// change resultByte to bytes
+  var link=document.createElement('a');
+  link.href=window.URL.createObjectURL(blob);
+  link.download="result.at";
+  link.click();
 }
 document.getElementById("btn").addEventListener("click", thinning);
 }
