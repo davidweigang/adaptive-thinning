@@ -37,7 +37,8 @@ async function run() {
     		  var byteArrayBuffer = reader.result;
                   var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
     		};
-    		reader.readAsDataURL(input.files[0]);
+    		reader.readAsArrayBuffer(input.files[0]);
+		console.log("DECODE");
 
 		let at_decoder = Decoder.decode(bytes);
 	
@@ -62,7 +63,7 @@ async function run() {
 	}
 
 	
-	document.getElementById("binary").addEventListener("onchange", decode);
+	document.getElementById("binary").addEventListener("change", decode);
 	
 }
 
