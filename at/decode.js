@@ -59,6 +59,7 @@ async function run() {
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		var pixels2 = pixels.reduce(reducer, []);
 		var pixels3 = Uint8ClampedArray.from(pixels2);
+			console.log(pixels3);
 	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img1_url = c.toDataURL("image/png");
