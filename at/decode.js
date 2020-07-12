@@ -31,17 +31,6 @@ async function run() {
 	}
 	
 	function decode(event) {
-		var count = 0;
-		let reducer = (acc, value) => {
-			acc.push(value);
-			count++;
-			if (count === 3) {
-				acc.push(255);
-				count = 0;
-			}
-			return acc;
-
-		}
 		var c = document.getElementById("canvas");
 		var ctx = c.getContext("2d");
 		var input = event.target;
@@ -56,6 +45,24 @@ async function run() {
 		var width = at_decoder.width();
 		var height = at_decoder.height();
 		var dimension = at_decoder.dimension();
+		var count = 0;
+		let reducer = (acc, value) => {
+			acc.push(value);
+			count++;
+			if (dimension === 1) {
+				acc.push(value);
+				count++;
+				acc.push(value);
+				count++;
+			}
+			if (count === 3) {
+				acc.push(255);
+				count = 0;
+			}
+			return acc;
+
+		}
+
 	  	var pixels = new Uint8ClampedArray(memory.buffer, pixelPtr, width * height * dimension);
 		var pixels2 = pixels.reduce(reducer, []);
 		var pixels3 = Uint8ClampedArray.from(pixels2);
@@ -79,7 +86,7 @@ async function run() {
 	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
-	  	document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
+	  	document.write('<img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
     		};
     		reader.readAsArrayBuffer(input.files[0]);
 	}
