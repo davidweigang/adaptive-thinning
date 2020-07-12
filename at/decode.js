@@ -44,6 +44,8 @@ async function run() {
 		var pixelPtr = at_decoder.image_pixels();
 		var width = at_decoder.width();
 		var height = at_decoder.height();
+		c.width = width;
+		c.height = height;
 		var dimension = at_decoder.dimension();
 		var count = 0;
 		let reducer = (acc, value) => {
