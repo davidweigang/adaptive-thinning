@@ -6,7 +6,7 @@
 //	              console.log(imports[0]);
 //	            });
 //
-import init, { Decoder } from '../pkg/wasm_game_of_life.js';
+import init, { AtDecoder } from '../pkg/wasm_game_of_life.js';
 
 
 var memory;
