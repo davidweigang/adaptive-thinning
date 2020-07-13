@@ -10,6 +10,19 @@ import init, { WasmImage } from '../pkg/wasm_game_of_life.js';
 
 
 var memory;
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#photo')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
 async function run() {
 	var bla = await init();
 	memory = bla.memory;
@@ -84,6 +97,7 @@ console.log(at_image.height());
 
   //link.click();
 }
+document.getElementById("bild").addEventListener("change", readURL(event));
 document.getElementById("btn").addEventListener("click", thinning);
 }
 
