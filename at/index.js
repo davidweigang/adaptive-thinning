@@ -49,6 +49,8 @@ console.log(at_image.height());
   at_image.thinning();
   end();
 	console.log("PSNR: " + at_image.psnr());
+	console.log("Encoded file size: " + bytes_len + " bytes -> bpp: " + bpp);
+	console.log(at_image.n_remaining() + " vertices out of " + c.width*c.height + " remaining.");
 	console.log(at_image.n_remaining() + " vertices out of " + c.width*c.height + " remaining.");
 
 
