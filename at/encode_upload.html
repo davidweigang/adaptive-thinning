@@ -32,8 +32,8 @@ function readURL(input) {
            var reader = new FileReader();
 
            reader.onload = function (e) {
-               $('#photo')
-                   .attr('src', e.target.result)
+           var photo = document.getElementById("photo");
+	   photo.src = e.target.result;
            };
 
            reader.readAsDataURL(input.files[0]);
