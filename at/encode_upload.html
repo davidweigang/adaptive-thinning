@@ -19,7 +19,7 @@
   <div class="output">
   <input type='file' onchange="readURL(this);" />
   <p/>
-  <img id="photo" src="#" alt="your image" />
+  <img id="bild" src="#" alt="your image" />
   </div>
   <div>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
@@ -32,7 +32,7 @@ function readURL(input) {
            var reader = new FileReader();
 
            reader.onload = function (e) {
-           var photo = document.getElementById("photo");
+           var photo = document.getElementById("bild");
 	   photo.src = e.target.result;
            };
 
