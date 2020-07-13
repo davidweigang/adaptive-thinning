@@ -7,6 +7,7 @@
 	</script>
 </head>
 <body>
+    <script src="./bootstrap.js"></script>
 <div class="contentarea">
 	<h1>
 		Adaptive Thinning: Proof of concept
@@ -17,7 +18,7 @@
   <canvas id="canvas">
   </canvas>
   <div class="output">
-  <input id="bild" type="file" accept="image/*"/>
+  <input type='file' onchange="readURL(this);" />
   <p/>
   <img id="photo" src="#" alt="your image" />
   </div>
@@ -25,7 +26,6 @@
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
     <button id="btn">Start thinning</button>
   </div>
-    <script src="./bootstrap.js"></script>
 </div>
 </body>
 </html>
