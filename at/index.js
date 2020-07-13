@@ -98,7 +98,7 @@ console.log(at_image.height());
 
   //link.click();
 }
-document.getElementById("bild").addEventListener("change", readURL(event));
+document.getElementById("bild").addEventListener("change", readURL(input));
 document.getElementById("btn").addEventListener("click", thinning);
 }
 
