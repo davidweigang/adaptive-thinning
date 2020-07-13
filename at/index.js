@@ -10,20 +10,6 @@ import init, { WasmImage } from '../pkg/wasm_game_of_life.js';
 
 
 var memory;
-     function readURL(input) {
-	     console.log("bla");
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#photo')
-                        .attr('src', e.target.result)
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
 async function run() {
 	var bla = await init();
 	memory = bla.memory;
