@@ -1,12 +1,12 @@
-//import { memory } from "../pkg/wasm_game_of_life/wasm_game_of_life_bg";
-//import {WasmImage} from "../pkg/wasm_game_of_life";
-//WebAssembly.compileStreaming(fetch('../pkg/wasm_game_of_life_bg.wasm'))
+//import { memory } from "../pkg/at_webapp/at_webapp_bg";
+//import {AtEncoder} from "../pkg/at_webapp";
+//WebAssembly.compileStreaming(fetch('../pkg/at_webapp_bg.wasm'))
 //      .then(function(mod) {
 //	              var imports = WebAssembly.Module.imports(mod);
 //	              console.log(imports[0]);
 //	            });
 //
-import init, { AtDecoder } from '../pkg/wasm_game_of_life.js';
+import init, { AtDecoder } from '../pkg/at_webapp.js';
 
 
 var memory;
