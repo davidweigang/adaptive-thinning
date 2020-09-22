@@ -30,7 +30,19 @@ async function run() {
 	  console.log(seconds + " seconds");
 	}
 
-	function decode_inner() {
+	function decode(event) {
+                document.getElementById("content").style.display = "none";
+                document.getElementById("loader").style.display = "block";
+                setTimeout(decode_inner, event, 100);
+	}
+	
+	function decode_inner(event) {
+		var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		var input = event.target;
+		var reader = new FileReader();
+    		reader.onload = function(){
+                  loader.offsetHeight;
     		  var byteArrayBuffer = reader.result;
                   var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
 		console.log("DECODE");
@@ -92,18 +104,6 @@ async function run() {
                 document.getElementById("loader").style.display = "none";
                 document.getElementById("result").style.display = "flex";
 
-	}
-	
-	function decode(event) {
-		var c = document.getElementById("canvas");
-		var ctx = c.getContext("2d");
-		var input = event.target;
-		var reader = new FileReader();
-    		reader.onload = function(){
-                  document.getElementById("content").style.display = "none";
-                  document.getElementById("loader").style.display = "block";
-                  loader.offsetHeight;
-                  setTimeout(decode_inner, 100);
     		};
     		reader.readAsArrayBuffer(input.files[0]);
 	}
