@@ -103,7 +103,7 @@ function thinning() {
     document.getElementById("content-inner").style.display = "none";
     document.getElementById("content").style.display = "block";
     document.getElementById("loader").style.display = "none";
-    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("result").style.display = "flex";
 }
 
 document.getElementById("atbtn").addEventListener("click", button_press);
