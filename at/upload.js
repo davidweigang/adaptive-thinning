@@ -37,7 +37,7 @@ function button_press() {
   var loader = document.getElementById("loader");
   loader.style.display = "block";
   loader.offsetHeight;
-  setTimeout(thinning, 500);
+  setTimeout(thinning, 100);
 }
 
 function thinning() {
