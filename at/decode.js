@@ -34,10 +34,10 @@ async function run() {
                 document.getElementById("content").style.display = "none";
                 document.getElementById("loader").style.display = "block";
 		var input = event.target;
-                setTimeout(decode_inner, input, 100);
+                setTimeout(decode_inner, 100, input);
 	}
 	
-	function decode_inner(input, reader) {
+	function decode_inner(input) {
 		var c = document.getElementById("canvas");
 		var ctx = c.getContext("2d");
 		var reader = new FileReader();
