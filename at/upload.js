@@ -87,16 +87,23 @@ function thinning() {
     var bytes = new Uint8Array(memory.buffer, bytePtr, byte_len); // pass your byte response to this constructor
     var blob=new Blob([bytes], {type: "application/at"});// change resultByte to bytes
     var link=document.createElement('a');
-    var newContent = document.createTextNode("Download at binary");
+    link.classList.ass("button");
+    var newContent = document.createTextNode("at-Datei Download");
     link.appendChild(newContent);
   
     link.href=window.URL.createObjectURL(blob);
     link.download="result.at";
   
-    document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
-    document.body.appendChild(link);
-  
-    //link.click();
+    document.getElementById("original").src = img0_url;
+    document.getElementById("reproduktion").src = img1_url;
+    document.getElementById("points").src = img2_url;
+    document.getElementById("triangulation").src = img3_url;
+    document.getElementById("binary") = link;
+
+    document.getElementById("content-inner").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("result").style.display = "block";
 }
 
 document.getElementById("atbtn").addEventListener("click", button_press);

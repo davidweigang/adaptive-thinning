@@ -11,7 +11,11 @@
 		Adaptive Thinning
 	</h1>
 <div id="loader"></div>
-<div id="content" class="center">
+<div id="content">
+  <p>
+      <a href="./index.html" class="button">Zurück zum Anfang<a>
+  </p>
+<div id="content_inner" class="center">
   <canvas id="canvas">
   </canvas>
   <div class="upload-btn-wrapper">
@@ -41,6 +45,20 @@ function readURL(input) {
 
 	</script>
     <script src="./bootstrap_upload.js"></script>
+</div>
+<div id="result" class="center">
+	<h3>Original</h3>
+	<img id="original" src="#"></img>
+	<h3>Reproduktion</h3>
+	<img id="reproduktion" src="#"></img>
+	<h3>Signifikante Pixel</h3>
+	<img id="points" src="#"></img>
+	<h3>Triangulierung</h3>
+	<img id="triangulation" src="#"></img>
+        <p>
+	    <a id="binary" href="#"/>
+        </p>
+</div>
 </div>
 </body>
 </html>
