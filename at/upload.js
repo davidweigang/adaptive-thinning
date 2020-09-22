@@ -10,10 +10,11 @@ import init, { AtEncoder } from '../pkg/at_webapp.js';
 
 
 var memory;
+var startTime, endTime;
+
 async function run() {
 	var bla = await init();
 	memory = bla.memory;
-        var startTime, endTime;
 }
 
 function start() {
