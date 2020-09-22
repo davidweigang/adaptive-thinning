@@ -31,6 +31,8 @@ function end() {
 }
 
 function thinning() {
+  document.getElementById("loader").display = "block";
+  document.getElementById("content").display = "none";
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
 var img = document.getElementById("bild");
@@ -45,8 +47,6 @@ let at_image = AtEncoder.new(0, c.width, c.height, 35, imgData.data);
 console.log(at_image.width());
 console.log(at_image.height());
 
-  document.getElementById("loader").display = "block";
-  document.getElementById("content").display = "none";
   start();
   at_image.thinning();
   end();
