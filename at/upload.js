@@ -31,9 +31,9 @@ function end() {
 }
 
 function thinning() {
-  document.getElementById("loader").style.display = "block";
+  var loader = document.getElementById("loader").style.display = "block";
   document.getElementById("content").style.display = "none";
-  window.trigger('resize');
+  loader.focus();
   
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
