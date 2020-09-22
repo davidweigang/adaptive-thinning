@@ -45,6 +45,8 @@ let at_image = AtEncoder.new(0, c.width, c.height, 35, imgData.data);
 console.log(at_image.width());
 console.log(at_image.height());
 
+  document.getElementById("loader").display = "block";
+  document.getElementById("content").display = "none";
   start();
   at_image.thinning();
   end();
@@ -82,6 +84,7 @@ console.log(at_image.height());
 
   link.href=window.URL.createObjectURL(blob);
   link.download="result.at";
+
   document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
   document.body.appendChild(link);
 
