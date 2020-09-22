@@ -13,7 +13,8 @@ var memory;
 async function run() {
 	var bla = await init();
 	memory = bla.memory;
-var startTime, endTime;
+        var startTime, endTime;
+}
 
 function start() {
   startTime = performance.now();
@@ -93,8 +94,7 @@ console.log(at_image.height());
 
   //link.click();
 }
-document.getElementById("atbtn").addEventListener("click", thinning);
-}
 
+document.getElementById("atbtn").addEventListener("click", thinning);
 run();	
 
