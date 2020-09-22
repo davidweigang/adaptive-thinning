@@ -87,7 +87,7 @@ console.log(at_image.height());
 
   //link.click();
 }
-document.getElementById("btn").addEventListener("click", thinning);
+document.getElementById("atbtn").addEventListener("click", thinning);
 }
 
 run();	
