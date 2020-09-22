@@ -29,17 +29,8 @@ async function run() {
 	  var seconds = Math.round(timeDiff);
 	  console.log(seconds + " seconds");
 	}
-	
-	function decode(event) {
-		var c = document.getElementById("canvas");
-		var ctx = c.getContext("2d");
-		var input = event.target;
-		var reader = new FileReader();
-    		reader.onload = function(){
-                  document.getElementById("content").style.display = "none";
-                  document.getElementById("loader").style.display = "block";
-                  loader.offsetHeight;
-                  setTimeout(function(){}, 100);
+
+	function decode_inner() {
     		  var byteArrayBuffer = reader.result;
                   var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
 		console.log("DECODE");
@@ -100,7 +91,19 @@ async function run() {
                 document.getElementById("content").style.display = "block";
                 document.getElementById("loader").style.display = "none";
                 document.getElementById("result").style.display = "flex";
-//	  	document.write('<img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
+
+	}
+	
+	function decode(event) {
+		var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		var input = event.target;
+		var reader = new FileReader();
+    		reader.onload = function(){
+                  document.getElementById("content").style.display = "none";
+                  document.getElementById("loader").style.display = "block";
+                  loader.offsetHeight;
+                  setTimeout(decode_inner, 100);
     		};
     		reader.readAsArrayBuffer(input.files[0]);
 	}
