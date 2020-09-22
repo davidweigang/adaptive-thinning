@@ -7,11 +7,33 @@
 	</script>
 </head>
 <body>
-  <canvas id="canvas">
-  </canvas>
-    <input id="binary" type="file" accept="at"> AT Binary hochladen</input>
+  <h1>
+  	Adaptive Thinning
+  </h1>
+  <div id="loader"></div>
+  <div id="content">
+    <p>
+        <a href="./index.html" class="button">Zurück zum Anfang<a>
+    </p>
+  <div id="content-inner" class="center">
+    <canvas id="canvas">
+    </canvas>
+    <div class="upload-btn-wrapper">
+      <button class="button">At Binary hochladen</button>
+      <input id="binary" type='file' class='button' accept="at"/>
+    </div>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
     <script src="./bootstrap_decode.js"></script>
+  </div>
+  <div id="result" class="center" style="display:none" >
+  	<h3>Reproduktion</h3>
+  	<img id="reproduktion" src="#"></img>
+  	<h3>Signifikante Pixel</h3>
+  	<img id="points" src="#"></img>
+  	<h3>Triangulierung</h3>
+  	<img id="triangulation" src="#"></img>
+  </div>
+  </div>
 </body>
 </html>
 

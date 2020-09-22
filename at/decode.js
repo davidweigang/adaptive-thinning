@@ -36,6 +36,10 @@ async function run() {
 		var input = event.target;
 		var reader = new FileReader();
     		reader.onload = function(){
+                  document.getElementById("content").style.display = "none";
+                  document.getElementById("loader").style.display = "block";
+                  loader.offsetHeight;
+                  setTimeout(function(){}, 100);
     		  var byteArrayBuffer = reader.result;
                   var bytes = new Uint8ClampedArray(byteArrayBuffer, 0, byteArrayBuffer.byteLength);
 		console.log("DECODE");
@@ -88,7 +92,15 @@ async function run() {
 	  	var ima = new ImageData(pixels3, width, height);
 	  	ctx.putImageData(ima, 0, 0);
 	  	let img3_url = c.toDataURL("image/png");
-	  	document.write('<img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
+                document.getElementById("reproduktion").src = img1_url;
+                document.getElementById("points").src = img2_url;
+                document.getElementById("triangulation").src = img3_url;
+
+                document.getElementById("content-inner").style.display = "none";
+                document.getElementById("content").style.display = "block";
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("result").style.display = "flex";
+//	  	document.write('<img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
     		};
     		reader.readAsArrayBuffer(input.files[0]);
 	}
