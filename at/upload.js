@@ -88,7 +88,6 @@ function thinning() {
     var blob=new Blob([bytes], {type: "application/at"});// change resultByte to bytes
     var link= document.getElementById("binary");
     //var link=document.createElement('a');
-    link.classList.ass("button");
     var newContent = document.createTextNode("at-Datei Download");
     link.appendChild(newContent);
   
