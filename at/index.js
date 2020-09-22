@@ -30,7 +30,7 @@ function end() {
   console.log(seconds + " seconds");
 }
 function button_press() {
-  document.getElementById("video").srcObject.getTracks().forEach(function(track) {
+  document.getElementById('video').srcObject.getTracks().forEach(function(track) {
       track.stop();
   });
   document.getElementById("content").style.display = "none";
