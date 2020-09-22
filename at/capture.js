@@ -27,9 +27,33 @@
     photo = document.getElementById('photo');
     startbutton = document.getElementById('snapbtn');
 
+    document.getElementById("frontbtn").addEventListener('click', function(ev){
+      setupCamera(true);
+    document.getElementById("camera-buttons").style.display = "none";
+    document.getElementById("content-inner").style.display = "flex";
+
+      ev.preventDefault();
+    }, false);
+
+    document.getElementById("backbtn").addEventListener('click', function(ev){
+      setupCamera(false);
+    document.getElementById("camera-buttons").style.display = "none";
+    document.getElementById("content-inner").style.display = "flex";
+
+      ev.preventDefault();
+    }, false);
+  }
+
+  function setupCamera(isFront) {
+
+    var facingMode = { exact: "environment" };
+    if (isFront) {
+        facingMode = { exact: "user" };
+    }
     navigator.mediaDevices.getUserMedia({video: {
 	width: {exact: 640},
-	height: {exact: 480}
+	height: {exact: 480},
+	facingMode: facingMode
 	//width: 512,
         //height: 512,
 	//resizeMode: "none"
@@ -61,7 +85,8 @@
     }, false);
     
     clearphoto();
-  }
+
+	}
 
   // Fill the photo with an indication that none has been
   // captured.
