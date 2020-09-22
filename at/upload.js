@@ -36,7 +36,7 @@ function button_press() {
   document.getElementById("content").style.display = "none";
   var loader = document.getElementById("loader");
   loader.style.display = "block";
-  loader.focus();
+  loader.offsetHeight;
   thinning();
 }
 
