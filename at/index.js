@@ -29,6 +29,16 @@ function end() {
   var seconds = Math.round(timeDiff);
   console.log(seconds + " seconds");
 }
+function button_press() {
+  document.getElementById("video").srcObject.getTracks().forEach(function(track) {
+      track.stop();
+  });
+  document.getElementById("content").style.display = "none";
+  var loader = document.getElementById("loader");
+  loader.style.display = "block";
+  loader.offsetHeight;
+  setTimeout(thinning, 100);
+}
 
 function thinning() {
 var c = document.getElementById("canvas");
@@ -83,12 +93,19 @@ console.log(at_image.height());
 
   link.href=window.URL.createObjectURL(blob);
   link.download="result.at";
-  document.write('<img src="'+img0_url+'"/><img src="'+img1_url+'"/><img src="'+img2_url+'"/><img src="'+img3_url+'"/>');
-  document.body.appendChild(link);
+  document.getElementById("original").src = img0_url;
+  document.getElementById("reproduktion").src = img1_url;
+  document.getElementById("points").src = img2_url;
+  document.getElementById("triangulation").src = img3_url;
+
+  document.getElementById("content-inner").style.display = "none";
+  document.getElementById("content").style.display = "block";
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("result").style.display = "flex";
 
   //link.click();
 }
-document.getElementById("btn").addEventListener("click", thinning);
+document.getElementById("atbtn").addEventListener("click", thinning);
 }
 
 run();	

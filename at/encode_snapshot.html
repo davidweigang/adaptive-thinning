@@ -8,22 +8,44 @@
 	</script>
 </head>
 <body>
-<div class="contentarea">
 	<h1>
-		Adaptive Thinning: Proof of concept
+		Adaptive Thinning
 	</h1>
-  <div class="camera">
-    <video id="video" >Video stream not available.</video>
-  </div>
-    <button id="startbutton">Take photo</button> 
+<div id="loader"></div>
+<div id="content">
+  <p>
+      <a href="./index.html" class="button">Zurück zum Anfang<a>
+  </p>
+<div id="content-inner" class="center">
   <canvas id="canvas">
   </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box."> 
-  </div>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <button id="btn">Start thinning</button>
+    <button id="atbtn" class="button" disabled>Starte Adaptive Thinning</button>
+  <div class="camera">
+    <video id="video" class="videoInsert" >Video stream not available.</video>
+  </div>
+  <h3>Snapshot</h3>
+  <div class="output">
+  <img id="photo" alt="The screen capture will appear in this box.">
+  </div>
+    <button id="snapbtn" class="button">Mache Foto</button> 
+  <div>
     <script src="./bootstrap.js"></script>
+  </div>
+</div>
+<div id="result" class="center" style="display:none" >
+	<h3>Original</h3>
+	<img id="original" src="#"></img>
+	<h3>Reproduktion</h3>
+	<img id="reproduktion" src="#"></img>
+	<h3>Signifikante Pixel</h3>
+	<img id="points" src="#"></img>
+	<h3>Triangulierung</h3>
+	<img id="triangulation" src="#"></img>
+        <p>
+	    <a id="binary" href="#"/>
+        </p>
+</div>
 </div>
 </body>
 </html>

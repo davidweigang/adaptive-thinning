@@ -3,8 +3,8 @@
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
 
-  var width = 320;    // We will scale the photo width to this
-  var height = 240;     // This will be computed based on the input stream
+  var width = 640;    // We will scale the photo width to this
+  var height = 480;     // This will be computed based on the input stream
 
   // |streaming| indicates whether or not we're currently streaming
   // video from the camera. Obviously, we start at false.
@@ -15,20 +15,24 @@
   // will be set by the startup() function.
 
   var video = null;
+  var camera = null;
   var canvas = null;
   var photo = null;
   var startbutton = null;
 
   function startup() {
     video = document.getElementById('video');
+    camera = document.getElementById('camera');
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
-    startbutton = document.getElementById('startbutton');
+    startbutton = document.getElementById('snapbtn');
 
     navigator.mediaDevices.getUserMedia({video: {
-	width: 320,
-        height: 240,
-	resizeMode: "crop-and-scale"
+	width: {exact: 640},
+	height: {exact: 480}
+	//width: 512,
+        //height: 512,
+	//resizeMode: "none"
     }, audio: false})
     .then(function(stream) {
       video.srcObject = stream;
@@ -45,19 +49,8 @@
 
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
-        //height = video.videoHeight / (video.videoWidth/width);
-      
-        //// Firefox currently has a bug where the height can't be read from
-        //// the video, so we will make assumptions if this happens.
-      
-        //if (isNaN(height)) {
-        //  height = width / (4/3);
-        //}
-      
         video.setAttribute('width', width);
         video.setAttribute('height', height);
-        //canvas.setAttribute('width', video.videoWidth);
-        //canvas.setAttribute('height', video.videoHeight);
         streaming = true;
       }
     }, false);
@@ -93,13 +86,13 @@
     if (width && height) {
       canvas.width = width;
       canvas.height = height;
-      context.drawImage(video, 0, 0, width, height);
+      context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
     
       var data = canvas.toDataURL('image/png');
 	    photo.width = width;
 	    photo.height = height;
       photo.setAttribute('src', data);
-
+      document.getElementById("atbtn").disabled = false;
     } else {
       clearphoto();
     }
