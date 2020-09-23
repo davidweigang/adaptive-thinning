@@ -65,9 +65,7 @@ console.log(at_image.height());
   	console.log("PSNR: " + psnr;
   	console.log("Encoded file size: " + bytes_len + " bytes -> bpp: " + bpp);
   	console.log(n_remaining + " vertices out of " + c.width*c.height + " remaining.");
-	document.getElementById("result-metrics").innerText = "PSNR: " + psnr
-	    + "\nEncoded file size: " + bytes_len + "bytes -> bpp: " + bpp
-	    + "\n" + n_remaining + " vertices out of " + c.width*c.height + " remaining.";
+	document.getElementById("result-metrics").innerText = "PSNR: " + psnr + "\nEncoded file size: " + bytes_len + "bytes -> bpp: " + bpp + "\n" + n_remaining + " vertices out of " + c.width*c.height + " remaining.";
 
 
   var pixelPtr = at_image.image_pixels();
