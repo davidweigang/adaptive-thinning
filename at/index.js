@@ -89,7 +89,8 @@ console.log(at_image.height());
   let byte_len = at_image.bytes_len();
   var bytes = new Uint8Array(memory.buffer, bytePtr, byte_len); // pass your byte response to this constructor
   var blob=new Blob([bytes], {type: "application/at"});// change resultByte to bytes
-  var link=document.createElement('a');
+  var link= document.getElementById("binary");
+  link.classList.add("button");
   var newContent = document.createTextNode("Download at binary");
   link.appendChild(newContent);
 
