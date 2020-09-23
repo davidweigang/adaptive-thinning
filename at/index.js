@@ -62,7 +62,7 @@ console.log(at_image.height());
   	let bpp = bytes_len * 8 / (at_image.width() * at_image.height())
 	let psnr = at_image.psnr();
 	let n_remaining = at_image.n_remaining();
-  	console.log("PSNR: " + psnr;
+  	console.log("PSNR: " + psnr);
   	console.log("Encoded file size: " + bytes_len + " bytes -> bpp: " + bpp);
   	console.log(n_remaining + " vertices out of " + c.width*c.height + " remaining.");
 	document.getElementById("result-metrics").innerText = "PSNR: " + psnr + "\nEncoded file size: " + bytes_len + "bytes -> bpp: " + bpp + "\n" + n_remaining + " vertices out of " + c.width*c.height + " remaining.";
