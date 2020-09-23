@@ -59,8 +59,8 @@ console.log(at_image.height());
   at_image.thinning();
   end();
   	let bytes_len = at_image.bytes_len();
-  	let bpp = bytes_len * 8 / (at_image.width() * at_image.height())
-	let psnr = at_image.psnr();
+  	let bpp = bytes_len * 8 / (at_image.width() * at_image.height()).toFixed(4);
+	let psnr = at_image.psnr().toFixed(4);
 	let n_remaining = at_image.n_remaining();
   	console.log("PSNR: " + psnr);
   	console.log("Encoded file size: " + bytes_len + " bytes -> bpp: " + bpp);
