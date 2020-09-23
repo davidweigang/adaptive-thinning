@@ -60,9 +60,14 @@ function thinning() {
     end();
   	let bytes_len = at_image.bytes_len();
   	let bpp = bytes_len * 8 / (at_image.width() * at_image.height())
-  	console.log("PSNR: " + at_image.psnr());
+	let psnr = at_image.psnr();
+	let n_remaining = at_image.n_remaining();
+  	console.log("PSNR: " + psnr;
   	console.log("Encoded file size: " + bytes_len + " bytes -> bpp: " + bpp);
-  	console.log(at_image.n_remaining() + " vertices out of " + c.width*c.height + " remaining.");
+  	console.log(n_remaining + " vertices out of " + c.width*c.height + " remaining.");
+	document.getElementById("result-metrics").innerText = "PSNR: " + psnr
+	    + "\nEncoded file size: " + bytes_len + "bytes -> bpp: " + bpp
+	    + "\n" + n_remaining + " vertices out of " + c.width*c.height + " remaining.";
   
   
     var pixelPtr = at_image.image_pixels();
