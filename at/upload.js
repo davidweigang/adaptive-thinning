@@ -50,7 +50,7 @@ function thinning() {
   let img0_url = c.toDataURL("image/png");
   let imgData = ctx.getImageData(0,0,c.width, c.height);
   
-  let at_image = AtEncoder.new(0, c.width, c.height, 33, imgData.data);
+  let at_image = AtEncoder.new(0, c.width, c.height, 34, imgData.data);
   //let at_image = AtEncoder.new(74000, c.width, c.height, 33, imgData.data);
   console.log(at_image.width());
   console.log(at_image.height());
