@@ -106,6 +106,13 @@ console.log(at_image.height());
   //link.click();
 }
 document.getElementById("atbtn").addEventListener("click", button_press);
+document.getElementById("redobtn").addEventListener("click", function(ev) {
+      document.getElementById("camera").style.display = "inline-block";
+      document.getElementById("output").style.display = "none";
+      document.getElementById("redobtn").disabled = true;
+      document.getElementById("atbtn").disabled = true;
+      ev.preventDefault();
+}, false);
 }
 
 run();	

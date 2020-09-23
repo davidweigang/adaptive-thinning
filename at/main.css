@@ -124,6 +124,13 @@ button[disabled]{
   align-items: center;
 }
 
+.vert {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .vertical-center {
   margin: 0;
   position: absolute;

@@ -118,6 +118,9 @@
 	    photo.height = height;
       photo.setAttribute('src', data);
       document.getElementById("atbtn").disabled = false;
+      document.getElementById("redobtn").disabled = false;
+      document.getElementById("camera").style.display = "none";
+      document.getElementById("output").style.display = "inline-block";
     } else {
       clearphoto();
     }

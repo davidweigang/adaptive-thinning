@@ -25,16 +25,20 @@
 <div id="content-inner" class="center" style="display:none">
   <canvas id="canvas">
   </canvas>
-    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
-    <button id="atbtn" class="button" disabled>Starte Adaptive Thinning</button>
-  <div class="camera">
+  <div id="content-video" class="vert">
+  <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+  <div id="camera" class="camera">
     <video id="video" class="videoInsert" >Video stream not available.</video>
   </div>
-  <h3>Snapshot</h3>
-  <div class="output">
+  <div id="output" class="output" style="display:none">
   <img id="photo" alt="The screen capture will appear in this box.">
   </div>
-    <button id="snapbtn" class="button">Mache Foto</button> 
+  <div id="content-buttons" class="center">
+  <button id="atbtn" class="button" disabled>Starte Adaptive Thinning</button>
+  <button id="snapbtn" class="button">Mache Foto</button> 
+  <button id="redobtn" class="button" disabled>Nochmal</button> 
+  </div>
+  </div>
   <div>
     <script src="./bootstrap.js"></script>
   </div>
