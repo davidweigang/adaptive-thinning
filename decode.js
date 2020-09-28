@@ -1,12 +1,12 @@
-//import { memory } from "pkg/at_webapp/at_webapp_bg";
-//import {AtEncoder} from "pkg/at_webapp";
-//WebAssembly.compileStreaming(fetch('pkg/at_webapp_bg.wasm'))
+//import { memory } from "./pkg/at_webapp/at_webapp_bg";
+//import {AtEncoder} from "./pkg/at_webapp";
+//WebAssembly.compileStreaming(fetch('./pkg/at_webapp_bg.wasm'))
 //      .then(function(mod) {
 //	              var imports = WebAssembly.Module.imports(mod);
 //	              console.log(imports[0]);
 //	            });
 //
-import init, { AtDecoder } from 'pkg/at_webapp.js';
+import init, { AtDecoder } from './pkg/at_webapp.js';
 
 
 var memory;
